@@ -2,1056 +2,777 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的收藏</title>
-  <style>
-    :root {
-      /* 浅色主题 (默认) */
-      --bg-primary: #F8FAFC;
-      --bg-secondary: #FFFFFF;
-      --bg-card: #FFFFFF;
-      --bg-card-hover: #FFFFFF;
-      --text-primary: #0F172A;
-      --text-secondary: #64748B;
-      --border-color: #E2E8F0;
-      --border-hover: #CBD5E1;
-      --input-bg: #F1F5F9;
-      --tag-bg: #F1F5F9;
-      --tag-text: #475569;
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.12);
-      --header-bg: rgba(248, 250, 252, 0.85);
-      --grid-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M0 0h1v1H0z'/%3E%3C/g%3E%3C/svg%3E");
-      --accent: #6366F1;
-      --radius: 16px;
-    }
-
-    /* 深色主题 */
-    body.dark {
-      --bg-primary: #0B1120;
-      --bg-secondary: #151E32;
-      --bg-card: #1A233A;
-      --bg-card-hover: #1E293B;
-      --text-primary: #F8FAFC;
-      --text-secondary: #94A3B8;
-      --border-color: #293548;
-      --border-hover: #3B4B63;
-      --input-bg: #151E32;
-      --tag-bg: #1E293B;
-      --tag-text: #CBD5E1;
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-      --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
-      --header-bg: rgba(11, 17, 32, 0.85);
-      --grid-pattern: none;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-      background-color: var(--bg-primary);
-      background-image: var(--grid-pattern);
-      color: var(--text-primary);
-      min-height: 100vh;
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    /* ===== 顶部固定区 ===== */
-    .sticky-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--header-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    header {
-      padding: 0 24px;
-    }
-
-    .header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 16px 0;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .logo-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--accent);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 18px;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-    }
-
-    .logo h1 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
-    .search-box {
-      position: relative;
-      flex: 1;
-      max-width: 420px;
-      min-width: 180px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 10px 16px 10px 40px;
-      background: var(--input-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      color: var(--text-primary);
-      font-size: 14px;
-      outline: none;
-      transition: all 0.2s;
-    }
-
-    .search-box input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
-    }
-
-    .search-box input::placeholder {
-      color: var(--text-secondary);
-    }
-
-    .search-box svg {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 18px;
-      height: 18px;
-      color: var(--text-secondary);
-      pointer-events: none;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-left: auto;
-    }
-
-    .stats {
-      display: flex;
-      gap: 16px;
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-item .num {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .stat-item .label {
-      font-size: 10px;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .theme-toggle {
-      width: 36px;
-      height: 36px;
-      background: var(--input-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      color: var(--text-secondary);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-
-    .theme-toggle:hover {
-      color: var(--text-primary);
-      border-color: var(--border-hover);
-    }
-
-    .theme-toggle svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* ===== 导航分类 (自动换行) ===== */
-    .category-nav {
-      padding: 0 24px;
-    }
-
-    .category-nav-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 12px 0 16px;
-    }
-
-    .nav-btn {
-      padding: 6px 14px;
-      background: transparent;
-      border: 1px solid transparent;
-      color: var(--text-secondary);
-      font-size: 13px;
-      font-weight: 500;
-      border-radius: 20px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .nav-btn:hover {
-      background: var(--input-bg);
-      color: var(--text-primary);
-    }
-
-    .nav-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
-    }
-
-    .nav-btn .count {
-      min-width: 18px;
-      height: 18px;
-      padding: 0 5px;
-      background: rgba(0, 0, 0, 0.08);
-      border-radius: 9px;
-      font-size: 11px;
-      margin-left: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    body.dark .nav-btn .count {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .nav-btn.active .count {
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    /* ===== 主内容 ===== */
-    main {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .category-section {
-      margin-bottom: 48px;
-      animation: fadeIn 0.4s ease both;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .category-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .category-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-
-    .category-header h2 {
-      font-size: 18px;
-      font-weight: 600;
-      flex: 1;
-    }
-
-    .category-header .count-text {
-      font-size: 13px;
-      color: var(--text-secondary);
-      font-weight: 400;
-    }
-
-    .category-header .arrow {
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s;
-      color: var(--text-secondary);
-    }
-
-    .category-header.collapsed .arrow {
-      transform: rotate(-90deg);
-    }
-
-    /* 网格容器：使用 padding/margin 技巧，确保悬浮阴影不被裁剪 */
-    .category-body {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 12px;
-      margin: -12px;
-    }
-
-    .category-body.collapsed {
-      display: none;
-    }
-
-    /* ===== 卡片 (全新设计) ===== */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 16px;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      box-shadow: var(--shadow-sm);
-    }
-
-    /* 悬浮效果：微小放大 + 阴影扩散 + 边框变色，不使用 translateY 避免上边沿问题 */
-    .card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--card-accent, var(--accent));
-      box-shadow: var(--shadow-lg), 0 0 0 1px var(--card-accent, var(--accent));
-      transform: scale(1.015);
-      z-index: 2;
-    }
-
-    .card-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--icon-bg, var(--input-bg));
-      overflow: hidden;
-    }
-
-    .card-icon-box img {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-    }
-
-    .card-icon-box span {
-      font-size: 22px;
-    }
-
-    .card-content {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .card-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .card-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-      overflow: hidden;
-    }
-
-    .card-domain {
-      font-size: 11px;
-      color: var(--text-secondary);
-      opacity: 0.7;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .card-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-
-    .tag {
-      padding: 2px 8px;
-      background: var(--tag-bg);
-      border-radius: 4px;
-      font-size: 11px;
-      color: var(--tag-text);
-      font-weight: 500;
-    }
-
-    /* ===== 空状态 ===== */
-    .empty-state {
-      text-align: center;
-      padding: 80px 20px;
-      color: var(--text-secondary);
-    }
-
-    .empty-state svg {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 16px;
-      opacity: 0.4;
-    }
-
-    .empty-state p {
-      font-size: 15px;
-    }
-
-    /* ===== 悬浮按钮 ===== */
-    .fab-container {
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 50;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s;
-      pointer-events: none;
-    }
-
-    .fab-container.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .fab {
-      width: 48px;
-      height: 48px;
-      border: none;
-      border-radius: 14px;
-      color: #fff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-      transition: all 0.2s;
-    }
-
-    .fab:hover {
-      transform: scale(1.05);
-    }
-
-    .fab-add {
-      background: var(--accent);
-      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
-    }
-
-    .fab-top {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ===== 模态框 ===== */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-      z-index: 200;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 28px;
-      width: 100%;
-      max-width: 480px;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
-      animation: modalIn 0.3s ease;
-    }
-
-    @keyframes modalIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .modal h3 {
-      font-size: 18px;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .form-group {
-      margin-bottom: 14px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px 14px;
-      background: var(--input-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      color: var(--text-primary);
-      font-size: 14px;
-      outline: none;
-      transition: border-color 0.2s;
-      font-family: inherit;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 64px;
-    }
-
-    .form-group select {
-      cursor: pointer;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .btn {
-      flex: 1;
-      padding: 11px;
-      border: none;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-    }
-
-    .btn-cancel {
-      background: var(--input-bg);
-      color: var(--text-secondary);
-      border: 1px solid var(--border-color);
-    }
-
-    .btn-cancel:hover {
-      background: var(--border-color);
-    }
-
-    /* ===== 滚动条 ===== */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--border-color);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--border-hover);
-    }
-
-    /* ===== 响应式 ===== */
-    @media (max-width: 768px) {
-
-      header,
-      .category-nav {
-        padding: 0 16px;
-      }
-
-      .header-inner {
-        padding: 12px 0;
-        gap: 12px;
-      }
-
-      .logo h1 {
-        font-size: 18px;
-      }
-
-      .stats {
-        display: none;
-      }
-
-      .search-box {
-        order: 3;
-        max-width: 100%;
-        min-width: 100%;
-      }
-
-      .category-nav-inner {
-        gap: 6px;
-        padding: 8px 0 12px;
-      }
-
-      .nav-btn {
-        padding: 5px 12px;
-        font-size: 12px;
-      }
-
-      main {
-        padding: 16px;
-      }
-
-      .category-body {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 8px;
-        margin: -8px;
-      }
-
-      .card {
-        padding: 14px;
-        gap: 12px;
-      }
-
-      .card-icon-box {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-      }
-
-      .card-icon-box img {
-        width: 24px;
-        height: 24px;
-      }
-
-      .fab-container {
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .fab {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的收藏</title>
+    <style>
+        :root {
+            --bg-primary: #F8FAFC;
+            --bg-secondary: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --border-color: #E2E8F0;
+            --border-hover: #CBD5E1;
+            --input-bg: #F1F5F9;
+            --tag-bg: #F1F5F9;
+            --tag-text: #475569;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.12);
+            --header-bg: rgba(248, 250, 252, 0.85);
+            --grid-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M0 0h1v1H0z'/%3E%3C/g%3E%3C/svg%3E");
+            --accent: #6366F1;
+            --radius: 16px;
+        }
+
+        body.dark {
+            --bg-primary: #0B1120;
+            --bg-secondary: #151E32;
+            --bg-card: #1A233A;
+            --bg-card-hover: #1E293B;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #293548;
+            --border-hover: #3B4B63;
+            --input-bg: #151E32;
+            --tag-bg: #1E293B;
+            --tag-text: #CBD5E1;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
+            --header-bg: rgba(11, 17, 32, 0.85);
+            --grid-pattern: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background-color: var(--bg-primary);
+            background-image: var(--grid-pattern);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--header-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header {
+            padding: 0 24px;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 420px;
+            min-width: 180px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 16px 10px 40px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: auto;
+        }
+
+        .stats {
+            display: flex;
+            gap: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .num {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-item .label {
+            font-size: 10px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .icon-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+        }
+
+        .icon-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .category-nav {
+            padding: 0 24px;
+        }
+
+        .category-nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 12px 0 16px;
+        }
+
+        .nav-btn {
+            padding: 6px 14px;
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 20px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-btn:hover {
+            background: var(--input-bg);
+            color: var(--text-primary);
+        }
+
+        .nav-btn.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+        }
+
+        .nav-btn .count {
+            min-width: 18px;
+            height: 18px;
+            padding: 0 5px;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 9px;
+            font-size: 11px;
+            margin-left: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.dark .nav-btn .count {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-btn.active .count {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+            position: relative;
+            z-index: 1;
+            min-height: 60vh;
+        }
+
+        .category-section {
+            margin-bottom: 48px;
+            animation: fadeIn 0.4s ease both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .category-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .category-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .category-header .count-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .category-header .arrow {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            color: var(--text-secondary);
+        }
+
+        .category-header.collapsed .arrow {
+            transform: rotate(-90deg);
+        }
+
+        .category-body {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 12px;
+            margin: -12px;
+        }
+
+        .category-body.collapsed {
+            display: none;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 16px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--card-accent, var(--accent));
+            box-shadow: var(--shadow-lg), 0 0 0 1px var(--card-accent, var(--accent));
+            transform: scale(1.015);
+            z-index: 2;
+        }
+
+        .card-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--icon-bg, var(--input-bg));
+            overflow: hidden;
+        }
+
+        .card-icon-box img {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+        }
+
+        .card-icon-box span {
+            font-size: 22px;
+        }
+
+        .card-content {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            overflow: hidden;
+        }
+
+        .card-domain {
+            font-size: 11px;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .tag {
+            padding: 2px 8px;
+            background: var(--tag-bg);
+            border-radius: 4px;
+            font-size: 11px;
+            color: var(--tag-text);
+            font-weight: 500;
+        }
+
+        /* 加载与错误状态 */
+        .status-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .status-box svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            color: #EF4444;
+        }
+
+        .status-box pre {
+            background: var(--input-bg);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-top: 12px;
+            max-width: 100%;
+            overflow-x: auto;
+            text-align: left;
+            color: #EF4444;
+        }
+
+        .fab-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 14px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 50;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        .fab-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .fab-top:hover {
+            transform: scale(1.05);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+
+            header,
+            .category-nav {
+                padding: 0 16px;
+            }
+
+            .header-inner {
+                padding: 12px 0;
+                gap: 12px;
+            }
+
+            .logo h1 {
+                font-size: 18px;
+            }
+
+            .stats {
+                display: none;
+            }
+
+            .search-box {
+                order: 3;
+                max-width: 100%;
+                min-width: 100%;
+            }
+
+            .category-nav-inner {
+                gap: 6px;
+                padding: 8px 0 12px;
+            }
+
+            .nav-btn {
+                padding: 5px 12px;
+                font-size: 12px;
+            }
+
+            main {
+                padding: 16px;
+            }
+
+            .category-body {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 8px;
+                margin: -8px;
+            }
+
+            .card {
+                padding: 14px;
+                gap: 12px;
+            }
+
+            .card-icon-box {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+            }
+
+            .fab-top {
+                bottom: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="sticky-header">
-    <header>
-      <div class="header-inner">
-        <div class="logo">
-          <div class="logo-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-            </svg>
-          </div>
-          <h1>我的收藏</h1>
-        </div>
-        <div class="search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
-          <input type="text" id="searchInput" placeholder="搜索收藏的网页…">
-        </div>
-        <div class="header-actions">
-          <div class="stats">
-            <div class="stat-item">
-              <div class="num" id="totalSites">0</div>
-              <div class="label">收藏</div>
+    <div class="sticky-header">
+        <header>
+            <div class="header-inner">
+                <div class="logo">
+                    <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                        </svg></div>
+                    <h1>我的收藏</h1>
+                </div>
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="搜索收藏的网页…">
+                </div>
+                <div class="header-actions">
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="num" id="totalSites">0</div>
+                            <div class="label">收藏</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="num" id="totalCats">0</div>
+                            <div class="label">分类</div>
+                        </div>
+                    </div>
+                    <!-- 导出按钮：方便把线上数据下载下来在本地大批量修改 -->
+                    <button class="icon-btn" id="exportBtn" title="导出当前数据 (JSON)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                    </button>
+                    <button class="icon-btn" id="themeToggle" title="切换主题">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" id="themeIcon"></svg>
+                    </button>
+                </div>
             </div>
-            <div class="stat-item">
-              <div class="num" id="totalCats">0</div>
-              <div class="label">分类</div>
-            </div>
-          </div>
-          <button class="theme-toggle" id="themeToggle" title="切换主题">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" id="themeIcon"></svg>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <nav class="category-nav">
-      <div class="category-nav-inner" id="categoryNav"></div>
-    </nav>
-  </div>
-
-  <main id="mainContent"></main>
-
-  <div class="fab-container" id="fabContainer">
-    <button class="fab fab-add" id="addBtn" title="添加收藏">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-        stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19" />
-        <line x1="5" y1="12" x2="19" y2="12" />
-      </svg>
-    </button>
-    <button class="fab fab-top" id="backTop" title="回到顶部">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="m18 15-6-6-6 6" />
-      </svg>
-    </button>
-  </div>
-
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <h3>✨ 添加新收藏</h3>
-      <div class="form-group"><label>网站名称</label><input type="text" id="formTitle" placeholder="例如：GitHub"></div>
-      <div class="form-group"><label>网址</label><input type="url" id="formUrl" placeholder="https://github.com"></div>
-      <div class="form-group"><label>描述</label><textarea id="formDesc" placeholder="简短描述这个网站…"></textarea></div>
-      <div class="form-group"><label>分类</label><select id="formCategory"></select></div>
-      <div class="form-group"><label>标签（逗号分隔）</label><input type="text" id="formTags" placeholder="开源, 代码, 工具"></div>
-      <div class="modal-actions">
-        <button class="btn btn-cancel" id="cancelBtn">取消</button>
-        <button class="btn btn-primary" id="saveBtn">保存</button>
-      </div>
+        </header>
+        <nav class="category-nav">
+            <div class="category-nav-inner" id="categoryNav"></div>
+        </nav>
     </div>
-  </div>
 
-  <script>
-    const defaultData = [
-      {
-        category: "开发工具", icon: "💻", color: "#6366F1", items: [
-          { title: "GitHub", url: "https://github.com", desc: "全球最大的代码托管平台，开源项目的聚集地", tags: ["开源", "代码"] },
-          { title: "Stack Overflow", url: "https://stackoverflow.com", desc: "开发者问答社区，解决编程问题的宝库", tags: ["问答", "社区"] },
-          { title: "VS Code", url: "https://code.visualstudio.com", desc: "微软出品的免费开源代码编辑器", tags: ["编辑器", "IDE"] },
-          { title: "npm", url: "https://www.npmjs.com", desc: "Node.js 的包管理工具，JavaScript 生态核心", tags: ["包管理", "JS"] }
-        ]
-      },
-      {
-        category: "学习资源", icon: "📚", color: "#10B981", items: [
-          { title: "MDN Web Docs", url: "https://developer.mozilla.org", desc: "Mozilla 维护的 Web 技术文档，最权威的参考", tags: ["文档", "Web"] },
-          { title: "FreeCodeCamp", url: "https://www.freecodecamp.org", desc: "免费的编程学习平台，通过项目实践学习", tags: ["免费", "教程"] },
-          { title: "Coursera", url: "https://www.coursera.org", desc: "全球顶级在线教育平台，名校课程免费学", tags: ["教育", "课程"] },
-          { title: "LeetCode", url: "https://leetcode.com", desc: "算法练习平台，程序员面试必备", tags: ["算法", "面试"] },
-          { title: "掘金", url: "https://juejin.cn", desc: "高质量的中文技术社区", tags: ["社区", "中文"] }
-        ]
-      },
-      {
-        category: "设计灵感", icon: "🎨", color: "#F43F5E", items: [
-          { title: "Dribbble", url: "https://dribbble.com", desc: "设计师作品分享平台，寻找灵感的最佳去处", tags: ["设计", "UI"] },
-          { title: "Behance", url: "https://www.behance.net", desc: "Adobe 旗下的创意作品展示平台", tags: ["创意", "作品集"] },
-          { title: "Awwwards", url: "https://www.awwwards.com", desc: "全球优秀网站设计评选，Web 设计风向标", tags: ["网页", "评选"] },
-          { title: "Figma", url: "https://www.figma.com", desc: "基于浏览器的协作设计工具", tags: ["工具", "协作"] }
-        ]
-      },
-      {
-        category: "新闻资讯", icon: "📰", color: "#F59E0B", items: [
-          { title: "Hacker News", url: "https://news.ycombinator.com", desc: "Y Combinator 旗下的科技新闻社区", tags: ["科技", "新闻"] },
-          { title: "TechCrunch", url: "https://techcrunch.com", desc: "全球知名科技媒体，报道创业和互联网动态", tags: ["科技", "创业"] },
-          { title: "InfoQ", url: "https://www.infoq.cn", desc: "面向企业软件开发者的技术资讯平台", tags: ["企业级", "技术"] }
-        ]
-      },
-      {
-        category: "效率工具", icon: "⚡", color: "#06B6D4", items: [
-          { title: "Notion", url: "https://www.notion.so", desc: "All-in-One 工作空间，笔记+数据库+项目管理", tags: ["笔记", "管理"] },
-          { title: "Vercel", url: "https://vercel.com", desc: "前端部署平台，极速部署你的 Web 应用", tags: ["部署", "前端"] },
-          { title: "Cloudflare", url: "https://www.cloudflare.com", desc: "全球 CDN 和网络安全服务提供商", tags: ["CDN", "安全"] }
-        ]
-      },
-      {
-        category: "AI 工具", icon: "🤖", color: "#8B5CF6", items: [
-          { title: "ChatGPT", url: "https://chat.openai.com", desc: "OpenAI 开发的 AI 对话助手", tags: ["AI", "对话"] },
-          { title: "Claude", url: "https://claude.ai", desc: "Anthropic 开发的 AI 助手，擅长长文本处理", tags: ["AI", "助手"] },
-          { title: "Midjourney", url: "https://www.midjourney.com", desc: "AI 图像生成工具，输入文字即可创作艺术", tags: ["AI", "图像"] },
-          { title: "Hugging Face", url: "https://huggingface.co", desc: "开源 AI 模型社区，机器学习模型仓库", tags: ["开源", "模型"] },
-          { title: "Qwen Studio", url: "https://chat.qwen.ai", desc: "通义千问大模型", tags: ["AI", "对话"] }
-        ]
-      }
-    ];
+    <main id="mainContent">
+        <!-- 初始加载状态 -->
+        <div class="status-box" id="loadingState">
+            <div class="spinner"></div>
+            <p>正在加载收藏数据...</p>
+        </div>
+    </main>
 
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks_v3')) || defaultData;
-    let activeCategory = 'all';
-    let searchQuery = '';
+    <button class="fab-top" id="backTop" title="回到顶部">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6" />
+        </svg>
+    </button>
 
-    function saveData() { localStorage.setItem('bookmarks_v3', JSON.stringify(bookmarks)); }
-    function getDomain(url) { try { return new URL(url).hostname.replace('www.', ''); } catch { return url; } }
-    function getFavicon(url) { try { const domain = new URL(url).hostname; return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`; } catch { return null; } }
-    function getAllItems() { return bookmarks.flatMap(c => c.items.map(i => ({ ...i, category: c.category, color: c.color }))); }
+    <script>
+        let bookmarks = [];
+        let activeCategory = 'all';
+        let searchQuery = '';
 
-    function hexToRgba(hex, alpha) {
-      const r = parseInt(hex.slice(1, 3), 16);
-      const g = parseInt(hex.slice(3, 5), 16);
-      const b = parseInt(hex.slice(5, 7), 16);
-      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-    }
+        function getDomain(url) { try { return new URL(url).hostname.replace('www.', ''); } catch { return url; } }
+        function getFavicon(url) { try { return `https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=64`; } catch { return null; } }
+        function getAllItems() { return bookmarks.flatMap(c => c.items.map(i => ({ ...i, category: c.category, color: c.color }))); }
+        function hexToRgba(hex, alpha) { const r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16); return `rgba(${r}, ${g}, ${b}, ${alpha})`; }
 
-    function render() {
-      const allItems = getAllItems();
-      document.getElementById('totalSites').textContent = allItems.length;
-      document.getElementById('totalCats').textContent = bookmarks.length;
-      renderNav();
-      renderContent();
-    }
+        // === 核心：异步加载数据 ===
+        async function loadData() {
+            try {
+                // 请求同目录下的 data.json
+                const response = await fetch('./data.json');
+                if (!response.ok) throw new Error(`HTTP 错误: ${response.status}`);
+                bookmarks = await response.json();
+                render();
+            } catch (error) {
+                document.getElementById('mainContent').innerHTML = `
+      <div class="status-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>数据加载失败</p>
+        <pre>${error.message}\n\n请确保：\n1. 根目录下存在 data.json 文件\n2. 你是通过 HTTP 服务器访问 (如 GitHub Pages)，而不是直接双击打开 HTML 文件</pre>
+      </div>`;
+            }
+        }
 
-    function renderNav() {
-      const nav = document.getElementById('categoryNav');
-      const allCount = getAllItems().length;
-      let html = `<button class="nav-btn ${activeCategory === 'all' ? 'active' : ''}" data-cat="all">全部 <span class="count">${allCount}</span></button>`;
-      bookmarks.forEach(cat => {
-        html += `<button class="nav-btn ${activeCategory === cat.category ? 'active' : ''}" data-cat="${cat.category}">${cat.icon} ${cat.category} <span class="count">${cat.items.length}</span></button>`;
-      });
-      nav.innerHTML = html;
-      nav.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.addEventListener('click', () => { activeCategory = btn.dataset.cat; render(); });
-      });
-    }
+        function render() {
+            document.getElementById('totalSites').textContent = getAllItems().length;
+            document.getElementById('totalCats').textContent = bookmarks.length;
+            renderNav(); renderContent();
+        }
 
-    function renderContent() {
-      const main = document.getElementById('mainContent');
-      let filtered = activeCategory === 'all' ? bookmarks : bookmarks.filter(c => c.category === activeCategory);
+        function renderNav() {
+            const nav = document.getElementById('categoryNav');
+            let html = `<button class="nav-btn ${activeCategory === 'all' ? 'active' : ''}" data-cat="all">全部 <span class="count">${getAllItems().length}</span></button>`;
+            bookmarks.forEach(cat => { html += `<button class="nav-btn ${activeCategory === cat.category ? 'active' : ''}" data-cat="${cat.category}">${cat.icon} ${cat.category} <span class="count">${cat.items.length}</span></button>`; });
+            nav.innerHTML = html;
+            nav.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', () => { activeCategory = btn.dataset.cat; render(); }));
+        }
 
-      if (searchQuery) {
-        const q = searchQuery.toLowerCase();
-        filtered = filtered.map(cat => ({
-          ...cat,
-          items: cat.items.filter(item =>
-            item.title.toLowerCase().includes(q) ||
-            item.desc.toLowerCase().includes(q) ||
-            item.url.toLowerCase().includes(q) ||
-            (item.tags && item.tags.some(t => t.toLowerCase().includes(q)))
-          )
-        })).filter(cat => cat.items.length > 0);
-      }
+        function renderContent() {
+            const main = document.getElementById('mainContent');
+            let filtered = activeCategory === 'all' ? bookmarks : bookmarks.filter(c => c.category === activeCategory);
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                filtered = filtered.map(cat => ({ ...cat, items: cat.items.filter(item => item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q) || item.url.toLowerCase().includes(q) || (item.tags && item.tags.some(t => t.toLowerCase().includes(q)))) })).filter(cat => cat.items.length > 0);
+            }
+            if (filtered.length === 0) { main.innerHTML = `<div class="status-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>没有找到匹配的收藏</p></div>`; return; }
 
-      if (filtered.length === 0) {
-        main.innerHTML = `<div class="empty-state">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <p>${searchQuery ? '没有找到匹配的收藏' : '还没有收藏，点击右下角 + 添加吧！'}</p>
-    </div>`;
-        return;
-      }
-
-      let html = '';
-      filtered.forEach((cat, idx) => {
-        html += `<section class="category-section" style="animation-delay: ${idx * 0.05}s">
+            let html = '';
+            filtered.forEach((cat, idx) => {
+                html += `<section class="category-section" style="animation-delay: ${idx * 0.05}s">
       <div class="category-header" data-section="${idx}">
         <div class="category-icon" style="background:${hexToRgba(cat.color, 0.15)}; color:${cat.color}">${cat.icon}</div>
-        <h2>${cat.category}</h2>
-        <span class="count-text">${cat.items.length} 个网站</span>
+        <h2>${cat.category}</h2><span class="count-text">${cat.items.length} 个</span>
         <div class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
       </div>
-      <div class="category-body" id="catBody${idx}">
-        ${cat.items.map(item => renderCard(item, cat.color)).join('')}
-      </div>
+      <div class="category-body" id="catBody${idx}">${cat.items.map(item => renderCard(item, cat.color)).join('')}</div>
     </section>`;
-      });
-      main.innerHTML = html;
+            });
+            main.innerHTML = html;
+            main.querySelectorAll('.category-header').forEach(header => header.addEventListener('click', () => { document.getElementById(`catBody${header.dataset.section}`).classList.toggle('collapsed'); header.classList.toggle('collapsed'); }));
+        }
 
-      main.querySelectorAll('.category-header').forEach(header => {
-        header.addEventListener('click', () => {
-          const idx = header.dataset.section;
-          const body = document.getElementById(`catBody${idx}`);
-          header.classList.toggle('collapsed');
-          body.classList.toggle('collapsed');
-        });
-      });
-    }
-
-    function renderCard(item, color) {
-      const favicon = getFavicon(item.url);
-      const tagsHtml = (item.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
-      return `<a class="card" href="${item.url}" target="_blank" rel="noopener noreferrer" style="--card-accent:${color}; --icon-bg:${hexToRgba(color, 0.12)}">
-    <div class="card-icon-box">
-      ${favicon ? `<img src="${favicon}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>🌐</span>'">` : '<span>🌐</span>'}
-    </div>
+        function renderCard(item, color) {
+            const favicon = getFavicon(item.url);
+            return `<a class="card" href="${item.url}" target="_blank" rel="noopener noreferrer" style="--card-accent:${color}; --icon-bg:${hexToRgba(color, 0.12)}">
+    <div class="card-icon-box">${favicon ? `<img src="${favicon}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>🌐</span>'">` : '<span>🌐</span>'}</div>
     <div class="card-content">
-      <div class="card-title">${item.title}</div>
-      <div class="card-desc">${item.desc}</div>
-      <div class="card-domain">${getDomain(item.url)}</div>
-      ${tagsHtml ? `<div class="card-tags">${tagsHtml}</div>` : ''}
-    </div>
-  </a>`;
-    }
+      <div class="card-title">${item.title}</div><div class="card-desc">${item.desc}</div><div class="card-domain">${getDomain(item.url)}</div>
+      ${(item.tags || []).length ? `<div class="card-tags">${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''}
+    </div></a>`;
+        }
 
-    // ===== 交互逻辑 =====
-    let searchTimer;
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(() => { searchQuery = e.target.value.trim(); render(); }, 200);
-    });
+        // === 交互逻辑 ===
+        let searchTimer;
+        document.getElementById('searchInput').addEventListener('input', (e) => { clearTimeout(searchTimer); searchTimer = setTimeout(() => { searchQuery = e.target.value.trim(); render(); }, 200); });
+        window.addEventListener('scroll', () => document.getElementById('backTop').classList.toggle('visible', window.scrollY > 300));
+        document.getElementById('backTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    const fabContainer = document.getElementById('fabContainer');
-    window.addEventListener('scroll', () => {
-      fabContainer.classList.toggle('visible', window.scrollY > 300);
-    });
-    document.getElementById('backTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        // 导出当前数据 (方便下载后去本地大批量修改)
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            if (bookmarks.length === 0) return alert('暂无数据可导出');
+            const blob = new Blob([JSON.stringify(bookmarks, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'data.json'; a.click();
+        });
 
-    // ===== 主题切换 =====
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
+        // 主题切换
+        const themeToggle = document.getElementById('themeToggle'), themeIcon = document.getElementById('themeIcon');
+        function updateThemeIcon(isDark) { themeIcon.innerHTML = isDark ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>' : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'; }
+        function initTheme() { const saved = localStorage.getItem('theme_v5'); const isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches; document.body.classList.toggle('dark', isDark); updateThemeIcon(isDark); }
+        initTheme();
+        themeToggle.addEventListener('click', () => { document.body.classList.toggle('dark'); localStorage.setItem('theme_v5', document.body.classList.contains('dark') ? 'dark' : 'light'); updateThemeIcon(document.body.classList.contains('dark')); });
 
-    function updateThemeIcon(isDark) {
-      themeIcon.innerHTML = isDark
-        ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
-        : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-    }
-
-    function initTheme() {
-      const saved = localStorage.getItem('theme_v3');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = saved ? saved === 'dark' : prefersDark;
-      document.body.classList.toggle('dark', isDark);
-      updateThemeIcon(isDark);
-    }
-    initTheme();
-
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      const isDark = document.body.classList.contains('dark');
-      localStorage.setItem('theme_v3', isDark ? 'dark' : 'light');
-      updateThemeIcon(isDark);
-    });
-
-    // ===== 添加收藏 =====
-    const addBtn = document.getElementById('addBtn');
-    const modalOverlay = document.getElementById('modalOverlay');
-    const cancelBtn = document.getElementById('cancelBtn');
-    const saveBtn = document.getElementById('saveBtn');
-
-    function populateCategories() {
-      document.getElementById('formCategory').innerHTML = bookmarks.map(c => `<option value="${c.category}">${c.icon} ${c.category}</option>`).join('');
-    }
-
-    addBtn.addEventListener('click', () => { populateCategories(); modalOverlay.classList.add('active'); document.getElementById('formTitle').focus(); });
-    cancelBtn.addEventListener('click', () => modalOverlay.classList.remove('active'));
-    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) modalOverlay.classList.remove('active'); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') modalOverlay.classList.remove('active'); });
-
-    saveBtn.addEventListener('click', () => {
-      const title = document.getElementById('formTitle').value.trim();
-      const url = document.getElementById('formUrl').value.trim();
-      const desc = document.getElementById('formDesc').value.trim();
-      const category = document.getElementById('formCategory').value;
-      const tagsStr = document.getElementById('formTags').value.trim();
-      const tags = tagsStr ? tagsStr.split(/[,，]/).map(t => t.trim()).filter(Boolean) : [];
-
-      if (!title || !url) { alert('请填写网站名称和网址'); return; }
-      const cat = bookmarks.find(c => c.category === category);
-      if (cat) {
-        cat.items.push({ title, url, desc, tags });
-        saveData(); render();
-      }
-      modalOverlay.classList.remove('active');
-      ['formTitle', 'formUrl', 'formDesc', 'formTags'].forEach(id => document.getElementById(id).value = '');
-    });
-
-    render();
-  </script>
+        // 启动
+        loadData();
+    </script>
 </body>
 
 </html>
