@@ -1,260 +1,117 @@
 [
-    {
-        "category": "开发工具",
-        "icon": "💻",
-        "color": "#6366F1",
-        "items": [
-            {
-                "title": "GitHub",
-                "url": "https://github.com",
-                "desc": "全球最大的代码托管平台，开源项目的聚集地",
-                "tags": [
-                    "开源",
-                    "代码"
-                ]
-            },
-            {
-                "title": "Stack Overflow",
-                "url": "https://stackoverflow.com",
-                "desc": "开发者问答社区，解决编程问题的宝库",
-                "tags": [
-                    "问答",
-                    "社区"
-                ]
-            },
-            {
-                "title": "VS Code",
-                "url": "https://code.visualstudio.com",
-                "desc": "微软出品的免费开源代码编辑器",
-                "tags": [
-                    "编辑器",
-                    "IDE"
-                ]
-            },
-            {
-                "title": "npm",
-                "url": "https://www.npmjs.com",
-                "desc": "Node.js 的包管理工具，JavaScript 生态核心",
-                "tags": [
-                    "包管理",
-                    "JS"
-                ]
-            }
-        ]
-    },
-    {
-        "category": "学习资源",
-        "icon": "📚",
-        "color": "#10B981",
-        "items": [
-            {
-                "title": "MDN Web Docs",
-                "url": "https://developer.mozilla.org",
-                "desc": "Mozilla 维护的 Web 技术文档，最权威的参考",
-                "tags": [
-                    "文档",
-                    "Web"
-                ]
-            },
-            {
-                "title": "FreeCodeCamp",
-                "url": "https://www.freecodecamp.org",
-                "desc": "免费的编程学习平台，通过项目实践学习",
-                "tags": [
-                    "免费",
-                    "教程"
-                ]
-            },
-            {
-                "title": "Coursera",
-                "url": "https://www.coursera.org",
-                "desc": "全球顶级在线教育平台，名校课程免费学",
-                "tags": [
-                    "教育",
-                    "课程"
-                ]
-            },
-            {
-                "title": "LeetCode",
-                "url": "https://leetcode.com",
-                "desc": "算法练习平台，程序员面试必备",
-                "tags": [
-                    "算法",
-                    "面试"
-                ]
-            },
-            {
-                "title": "掘金",
-                "url": "https://juejin.cn",
-                "desc": "高质量的中文技术社区",
-                "tags": [
-                    "社区",
-                    "中文"
-                ]
-            }
-        ]
-    },
-    {
-        "category": "设计灵感",
-        "icon": "🎨",
-        "color": "#F43F5E",
-        "items": [
-            {
-                "title": "Dribbble",
-                "url": "https://dribbble.com",
-                "desc": "设计师作品分享平台，寻找灵感的最佳去处",
-                "tags": [
-                    "设计",
-                    "UI"
-                ]
-            },
-            {
-                "title": "Behance",
-                "url": "https://www.behance.net",
-                "desc": "Adobe 旗下的创意作品展示平台",
-                "tags": [
-                    "创意",
-                    "作品集"
-                ]
-            },
-            {
-                "title": "Awwwards",
-                "url": "https://www.awwwards.com",
-                "desc": "全球优秀网站设计评选，Web 设计风向标",
-                "tags": [
-                    "网页",
-                    "评选"
-                ]
-            },
-            {
-                "title": "Figma",
-                "url": "https://www.figma.com",
-                "desc": "基于浏览器的协作设计工具",
-                "tags": [
-                    "工具",
-                    "协作"
-                ]
-            }
-        ]
-    },
-    {
-        "category": "新闻资讯",
-        "icon": "📰",
-        "color": "#F59E0B",
-        "items": [
-            {
-                "title": "Hacker News",
-                "url": "https://news.ycombinator.com",
-                "desc": "Y Combinator 旗下的科技新闻社区",
-                "tags": [
-                    "科技",
-                    "新闻"
-                ]
-            },
-            {
-                "title": "TechCrunch",
-                "url": "https://techcrunch.com",
-                "desc": "全球知名科技媒体，报道创业和互联网动态",
-                "tags": [
-                    "科技",
-                    "创业"
-                ]
-            },
-            {
-                "title": "InfoQ",
-                "url": "https://www.infoq.cn",
-                "desc": "面向企业软件开发者的技术资讯平台",
-                "tags": [
-                    "企业级",
-                    "技术"
-                ]
-            }
-        ]
-    },
-    {
-        "category": "效率工具",
-        "icon": "⚡",
-        "color": "#06B6D4",
-        "items": [
-            {
-                "title": "Notion",
-                "url": "https://www.notion.so",
-                "desc": "All-in-One 工作空间，笔记+数据库+项目管理",
-                "tags": [
-                    "笔记",
-                    "管理"
-                ]
-            },
-            {
-                "title": "Vercel",
-                "url": "https://vercel.com",
-                "desc": "前端部署平台，极速部署你的 Web 应用",
-                "tags": [
-                    "部署",
-                    "前端"
-                ]
-            },
-            {
-                "title": "Cloudflare",
-                "url": "https://www.cloudflare.com",
-                "desc": "全球 CDN 和网络安全服务提供商",
-                "tags": [
-                    "CDN",
-                    "安全"
-                ]
-            }
-        ]
-    },
-    {
-        "category": "AI 工具",
-        "icon": "🤖",
-        "color": "#8B5CF6",
-        "items": [
-            {
-                "title": "ChatGPT",
-                "url": "https://chat.openai.com",
-                "desc": "OpenAI 开发的 AI 对话助手",
-                "tags": [
-                    "AI",
-                    "对话"
-                ]
-            },
-            {
-                "title": "Claude",
-                "url": "https://claude.ai",
-                "desc": "Anthropic 开发的 AI 助手，擅长长文本处理",
-                "tags": [
-                    "AI",
-                    "助手"
-                ]
-            },
-            {
-                "title": "Midjourney",
-                "url": "https://www.midjourney.com",
-                "desc": "AI 图像生成工具，输入文字即可创作艺术",
-                "tags": [
-                    "AI",
-                    "图像"
-                ]
-            },
-            {
-                "title": "Hugging Face",
-                "url": "https://huggingface.co",
-                "desc": "开源 AI 模型社区，机器学习模型仓库",
-                "tags": [
-                    "开源",
-                    "模型"
-                ]
-            },
-            {
-                "title": "Qwen Studio",
-                "url": "https://chat.qwen.ai",
-                "desc": "通义千问大模型",
-                "tags": [
-                    "AI",
-                    "对话"
-                ]
-            }
-        ]
-    }
+  {
+    "category": "AI 对话与搜索",
+    "icon": "💬",
+    "color": "#10B981",
+    "items": [
+      { "title": "ChatGPT", "url": "https://chat.openai.com", "desc": "OpenAI 开发的旗舰大语言模型，支持文本、视觉、代码与联网", "tags": ["GPT-4o", "多模态"] },
+      { "title": "Claude", "url": "https://claude.ai", "desc": "Anthropic 出品，以超长上下文窗口、深度逻辑推理和代码能力见长", "tags": ["长文本", "推理"] },
+      { "title": "Gemini", "url": "https://gemini.google.com", "desc": "Google 推出的原生多模态 AI，与 Google 生态深度整合", "tags": ["Google", "多模态"] },
+      { "title": "Perplexity", "url": "https://www.perplexity.ai", "desc": "基于大模型的 AI 搜索引擎，提供带精准引用的实时答案", "tags": ["AI搜索", "引用"] },
+      { "title": "Kimi 智能助手", "url": "https://kimi.moonshot.cn", "desc": "月之暗面出品，国内支持超长上下文和长文档解析的代表产品", "tags": ["长文本", "国内"] },
+      { "title": "通义千问", "url": "https://tongyi.aliyun.com", "desc": "阿里云推出的大模型，在代码、数学和长文本理解上表现优异", "tags": ["阿里", "全能"] },
+      { "title": "智谱清言", "url": "https://chatglm.cn", "desc": "基于 GLM 模型，支持强大的数据分析、画图与智能体功能", "tags": ["GLM", "数据分析"] },
+      { "title": "豆包", "url": "https://www.doubao.com", "desc": "字节跳动推出的 AI 助手，响应速度快，日常交互体验极佳", "tags": ["字节", "效率"] },
+      { "title": "文心一言", "url": "https://yiyan.baidu.com", "desc": "百度推出的知识增强大语言模型，中文语境理解能力强", "tags": ["百度", "中文"] },
+      { "title": "腾讯元宝", "url": "https://yuanbao.tencent.com", "desc": "腾讯基于混元大模型推出的 AI 助手，深度接入微信生态", "tags": ["腾讯", "微信"] }
+    ]
+  },
+  {
+    "category": "AI 编程与开发",
+    "icon": "💻",
+    "color": "#6366F1",
+    "items": [
+      { "title": "Cursor", "url": "https://cursor.sh", "desc": "基于 VS Code 深度定制的 AI 代码编辑器，目前最火的 AI 编程工具", "tags": ["IDE", "代码生成"] },
+      { "title": "GitHub Copilot", "url": "https://github.com/features/copilot", "desc": "微软与 GitHub 联合推出的 AI 编程助手，行业标杆", "tags": ["微软", "代码补全"] },
+      { "title": "v0 by Vercel", "url": "https://v0.dev", "desc": "Vercel 推出的生成式 UI 工具，通过提示词直接生成 React/Tailwind 代码", "tags": ["前端", "UI生成"] },
+      { "title": "bolt.new", "url": "https://bolt.new", "desc": "StackBlitz 推出的 Web 开发 AI，可在浏览器内一键生成并运行全栈应用", "tags": ["全栈", "WebContainer"] },
+      { "title": "Ollama", "url": "https://ollama.com", "desc": "在本地一键运行 Llama、Qwen 等开源大模型的必备神器", "tags": ["本地部署", "开源"] },
+      { "title": "Phind", "url": "https://www.phind.com", "desc": "专为开发者打造的 AI 搜索引擎，解决编程问题比通用 AI 更精准", "tags": ["开发者", "搜索"] },
+      { "title": "Codeium", "url": "https://codeium.com", "desc": "提供免费且强大的 AI 代码补全和聊天功能，支持 70+ 种语言", "tags": ["免费", "插件"] },
+      { "title": "Replit Agent", "url": "https://replit.com", "desc": "从自然语言提示直接构建、部署完整应用的 AI 软件工程平台", "tags": ["部署", "Agent"] },
+      { "title": "Continue", "url": "https://continue.dev", "desc": "开源的 AI 代码助手，可无缝接入 VS Code/JetBrains 并连接任意模型", "tags": ["开源", "IDE插件"] },
+      { "title": "Smithery", "url": "https://smithery.ai", "desc": "MCP (Model Context Protocol) 服务器注册表，让 AI 连接各种外部工具", "tags": ["MCP", "Agent"] }
+    ]
+  },
+  {
+    "category": "LLM 模型与开源社区",
+    "icon": "🧠",
+    "color": "#8B5CF6",
+    "items": [
+      { "title": "Hugging Face", "url": "https://huggingface.co", "desc": "AI 领域的 GitHub，最大的开源模型、数据集和托管平台", "tags": ["开源", "模型库"] },
+      { "title": "DeepSeek", "url": "https://www.deepseek.com", "desc": "深度求索，国内极具竞争力的开源大模型团队，代码与数学能力顶尖", "tags": ["开源", "国产之光"] },
+      { "title": "Qwen (通义千问开源)", "url": "https://qwenlm.github.io", "desc": "阿里开源的 Qwen 系列模型，在多语言和视觉理解上处于开源第一梯队", "tags": ["阿里", "多模态"] },
+      { "title": "Llama", "url": "https://llama.meta.com", "desc": "Meta 开源的 Llama 系列，推动全球开源大模型生态爆发的基石", "tags": ["Meta", "基石"] },
+      { "title": "Mistral AI", "url": "https://mistral.ai", "desc": "欧洲顶尖的 AI 实验室，以极高的参数效率和优秀的开源模型闻名", "tags": ["欧洲", "高效"] },
+      { "title": "OpenRouter", "url": "https://openrouter.ai", "desc": "统一的 LLM API 聚合平台，一个 Key 调用全网几乎所有主流大模型", "tags": ["API聚合", "路由"] },
+      { "title": "Together AI", "url": "https://www.together.ai", "desc": "提供极速的开源模型推理 API 和高效的微调平台", "tags": ["推理", "微调"] },
+      { "title": "Civitai", "url": "https://civitai.com", "desc": "全球最大的 AI 绘画模型（LoRA/Checkpoint）分享与社区平台", "tags": ["SD", "模型分享"] },
+      { "title": "Groq", "url": "https://groq.com", "desc": "提供基于 LPU 的超高速大模型推理服务，速度快到令人发指", "tags": ["极速推理", "LPU"] },
+      { "title": "Kaggle", "url": "https://www.kaggle.com", "desc": "全球知名的数据科学竞赛平台，提供免费的 GPU 算力和海量数据集", "tags": ["竞赛", "数据集"] }
+    ]
+  },
+  {
+    "category": "AI 绘画与图像",
+    "icon": "🎨",
+    "color": "#F43F5E",
+    "items": [
+      { "title": "Midjourney", "url": "https://www.midjourney.com", "desc": "目前综合艺术质量最高、最流行的 AI 图像生成工具", "tags": ["艺术", "顶流"] },
+      { "title": "Stable Diffusion", "url": "https://stability.ai", "desc": "Stability AI 推出的开源图像生成模型，拥有最庞大的插件生态", "tags": ["开源", "生态"] },
+      { "title": "Leonardo.ai", "url": "https://leonardo.ai", "desc": "提供高质量图像生成与微调功能，游戏和概念设计领域的利器", "tags": ["游戏资产", "微调"] },
+      { "title": "Ideogram", "url": "https://ideogram.ai", "desc": "在图像中生成精准、无误的文字和排版方面表现最佳的 AI 工具", "tags": ["文字生成", "排版"] },
+      { "title": "Krea.ai", "url": "https://krea.ai", "desc": "支持实时画布生成和强大的图像增强，所见即所得的 AI 创作", "tags": ["实时生成", "增强"] },
+      { "title": "Magnific AI", "url": "https://magnific.ai", "desc": "革命性的 AI 图像放大与幻觉增强工具，能无中生有地添加惊人细节", "tags": ["放大", "细节增强"] },
+      { "title": "Bing Image Creator", "url": "https://www.bing.com/images/create", "desc": "微软免费提供的 DALL-E 3 图像生成服务，日常使用性价比极高", "tags": ["免费", "DALL-E 3"] },
+      { "title": "Tensor.art", "url": "https://tensor.art", "desc": "免费提供在线运行 Stable Diffusion 模型和 LoRA 的平台", "tags": ["在线SD", "免费"] },
+      { "title": "Flux", "url": "https://blackforestlabs.ai", "desc": "由原 SD 核心团队创立的黑森林实验室推出的新一代开源图像模型", "tags": ["新一代", "开源"] },
+      { "title": "Clipdrop", "url": "https://clipdrop.co", "desc": "Stability AI 旗下的 AI 图像编辑工具箱（抠图、打光、擦除等）", "tags": ["图像编辑", "工具箱"] }
+    ]
+  },
+  {
+    "category": "AI 视频与音频",
+    "icon": "🎬",
+    "color": "#F59E0B",
+    "items": [
+      { "title": "Runway", "url": "https://runwayml.com", "desc": "AI 视频生成领域的先驱，Gen-3 Alpha 模型提供电影级的视频生成", "tags": ["视频生成", "Gen-3"] },
+      { "title": "可灵 AI (Kling)", "url": "https://klingai.kuaishou.com", "desc": "快手推出的新一代 AI 创意生产力平台，视频生成质量与物理规律表现极佳", "tags": ["国产", "物理规律"] },
+      { "title": "Luma Dream Machine", "url": "https://lumalabs.ai/dream-machine", "desc": "Luma AI 推出的高质量视频生成模型，运镜和动态效果出色", "tags": ["运镜", "3D"] },
+      { "title": "Pika", "url": "https://pika.art", "desc": "极具创意的 AI 视频工具，支持唇形同步、局部修改和音效生成", "tags": ["创意", "唇形同步"] },
+      { "title": "ElevenLabs", "url": "https://elevenlabs.io", "desc": "全球最逼真的 AI 语音克隆与文本转语音 (TTS) 平台", "tags": ["语音克隆", "TTS"] },
+      { "title": "Suno", "url": "https://suno.com", "desc": "现象级的 AI 音乐生成工具，输入提示词即可生成带人声的完整歌曲", "tags": ["音乐生成", "人声"] },
+      { "title": "Udio", "url": "https://www.udio.com", "desc": "另一款顶级的 AI 音乐生成平台，在音质和音乐复杂性上表现卓越", "tags": ["音乐", "高音质"] },
+      { "title": "HeyGen", "url": "https://www.heygen.com", "desc": "领先的 AI 数字人视频平台，支持多语言口型同步和视频翻译", "tags": ["数字人", "视频翻译"] },
+      { "title": "Hedra", "url": "https://www.hedra.com", "desc": "专注于人物角色驱动的 AI 视频生成，表情和动作控制非常细腻", "tags": ["角色驱动", "表情"] },
+      { "title": "PixVerse", "url": "https://pixverse.ai", "desc": "爱诗科技推出的强大 AI 视频生成工具，支持高分辨率和复杂转场", "tags": ["国产", "高分辨率"] }
+    ]
+  },
+  {
+    "category": "AI 提示词与导航",
+    "icon": "🧭",
+    "color": "#06B6D4",
+    "items": [
+      { "title": "There's An AI For That", "url": "https://theresanaiforthat.com", "desc": "全球收录最全的 AI 工具导航网站，按任务分类寻找 AI 必备", "tags": ["导航", "最全"] },
+      { "title": "Futurepedia", "url": "https://www.futurepedia.io", "desc": "每日更新的 AI 工具目录，包含详细的评测和用户评价", "tags": ["每日更新", "评测"] },
+      { "title": "PromptHero", "url": "https://prompthero.com", "desc": "高质量的 AI 绘画提示词社区，支持按模型筛选和一键复制", "tags": ["提示词", "MJ/SD"] },
+      { "title": "FlowGPT", "url": "https://flowgpt.com", "desc": "最大的 ChatGPT 提示词和角色扮演 (Character) 分享社区", "tags": ["角色扮演", "社区"] },
+      { "title": "Awesome ChatGPT Prompts", "url": "https://github.com/f/awesome-chatgpt-prompts", "desc": "GitHub 上最火的提示词仓库，收录了大量让 AI 扮演专家的咒语", "tags": ["GitHub", "专家扮演"] },
+      { "title": "LangChain", "url": "https://www.langchain.com", "desc": "开发大语言模型应用的最流行框架，提供丰富的组件和工具链", "tags": ["开发框架", "Agent"] },
+      { "title": "Dify", "url": "https://dify.ai", "desc": "开源的 LLM 应用开发平台，可视化编排 Agent 和 RAG 工作流", "tags": ["开源", "可视化"] },
+      { "title": "Coze (扣子)", "url": "https://www.coze.com", "desc": "字节跳动推出的下一代 AI 应用和 Agent 开发平台，插件生态丰富", "tags": ["Agent", "字节"] }
+    ]
+  },
+  {
+    "category": "AI 学术与资讯",
+    "icon": "📰",
+    "color": "#EC4899",
+    "items": [
+      { "title": "arXiv (cs.AI / cs.CL)", "url": "https://arxiv.org/list/cs.AI/recent", "desc": "全球最前沿的 AI 和计算语言学论文预印本发布平台", "tags": ["论文", "前沿"] },
+      { "title": "Papers With Code", "url": "https://paperswithcode.com", "desc": "将 AI 论文与其开源代码实现和排行榜 (SOTA) 结合的平台", "tags": ["代码", "SOTA"] },
+      { "title": "机器之心", "url": "https://www.jiqizhixin.com", "desc": "国内最专业的 AI 科技媒体，提供深度的产业报道和论文解读", "tags": ["国内媒体", "深度"] },
+      { "title": "量子位", "url": "https://www.qbitai.com", "desc": "追踪 AI 前沿动态、大模型产品和科技圈八卦的头部自媒体", "tags": ["快讯", "产品"] },
+      { "title": "The Batch", "url": "https://www.deeplearning.ai/the-batch/", "desc": "吴恩达 (Andrew Ng) 团队出品的 AI 周刊，用通俗语言总结行业大事", "tags": ["吴恩达", "周刊"] },
+      { "title": "Hugging Face Daily Papers", "url": "https://huggingface.co/papers", "desc": "Hugging Face 社区每日票选出的最热门 AI 论文，紧跟社区关注度", "tags": ["每日精选", "社区"] },
+      { "title": "Hacker News (AI)", "url": "https://news.ycombinator.com", "desc": "硅谷技术圈的风向标，搜索 'LLM' 或 'AI' 能看到最硬核的技术讨论", "tags": ["硅谷", "硬核"] },
+      { "title": "LMSYS Chatbot Arena", "url": "https://chat.lmsys.org", "desc": "全球公认最权威的大模型盲测排行榜 (Leaderboard)，基于人类真实投票", "tags": ["排行榜", "盲测"] }
+    ]
+  }
 ]
