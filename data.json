@@ -208,12 +208,10 @@
     "icon": "🍿",
     "color": "#EF4444",
     "items": [
-      { "title": "低调影视", "url": "https://ddys.app/", "desc": "提供超清、无广告的高质量欧美日韩剧集在线播放", "tags": ["超清", "无广告"] },
-      { "title": "奈菲影视", "url": "https://www.nfmovies.com", "desc": "界面清爽、资源更新快的免费在线影视站", "tags": ["在线", "电影"] },
-      { "title": "AGE动漫", "url": "https://www.agefans.tv", "desc": "资源极全、加载速度快的在线动漫追番网站", "tags": ["动漫", "追番"] },
-      { "title": "樱花动漫", "url": "http://m.yhdm.tv", "desc": "老牌在线动漫播放站，移动端体验良好", "tags": ["动漫", "移动端"] },
-      { "title": "动漫之家", "url": "https://www.dmzj.com", "desc": "国内最大的二次元漫画社区与在线漫画阅读平台", "tags": ["漫画", "社区"] },
-      { "title": "漫画DB", "url": "https://www.manhuadb.com", "desc": "干净无广告的在线漫画阅读网站", "tags": ["漫画", "清爽"] },
+      { "title": "低调影视", "url": "https://ddys.app", "desc": "提供超清、无广告的高质量欧美日韩剧集在线播放", "tags": ["超清", "无广告"] },
+      { "title": "电影人生", "url": "https://www.dyrsok.vip", "desc": "提供超清、无广告的高质量欧美日韩剧集在线播放", "tags": ["超清", "无广告"] },
+      { "title": "AGE动漫", "url": "http://age.tv", "desc": "资源极全、加载速度快的在线动漫追番网站", "tags": ["动漫", "追番"] },
+      { "title": "樱花动漫", "url": "https://yhdm.one", "desc": "老牌在线动漫播放站，移动端体验良好", "tags": ["动漫", "移动端"] },
       { "title": "CCTV-5 直播", "url": "https://tv.cctv.com/live/cctv5", "desc": "中央电视台体育频道官方高清直播", "tags": ["体育", "直播"] }
     ]
   },
