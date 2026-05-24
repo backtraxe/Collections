@@ -113,5 +113,115 @@
       { "title": "Hacker News (AI)", "url": "https://news.ycombinator.com", "desc": "硅谷技术圈的风向标，搜索 'LLM' 或 'AI' 能看到最硬核的技术讨论", "tags": ["硅谷", "硬核"] },
       { "title": "LMSYS Chatbot Arena", "url": "https://chat.lmsys.org", "desc": "全球公认最权威的大模型盲测排行榜 (Leaderboard)，基于人类真实投票", "tags": ["排行榜", "盲测"] }
     ]
+  },
+  {
+    "category": "求职面试与算法",
+    "icon": "💼",
+    "color": "#F59E0B",
+    "items": [
+      { "title": "Java 全栈知识体系", "url": "https://pdai.tech/", "desc": "全面且深度的 Java 全栈与后端知识体系文档", "tags": ["Java", "全栈"] },
+      { "title": "JavaGuide", "url": "https://javaguide.cn/", "desc": "涵盖 Java 核心基础、面试指南与开源项目的经典仓库", "tags": ["Java", "面试"] },
+      { "title": "labuladong 的算法小抄", "url": "https://labuladong.github.io/algo/", "desc": "经典的算法解题套路与 LeetCode 题解，刷题必备", "tags": ["算法", "LeetCode"] },
+      { "title": "进击的java菜鸟", "url": "https://fhfirehuo.github.io/Attacking-Java-Rookie/", "desc": "Java 进阶与面试知识点深度总结", "tags": ["Java", "进阶"] },
+      { "title": "JVMStudy", "url": "https://github.com/shaoxiongdu/JVMStudy", "desc": "💊JVM 底层原理与源码级深度解析", "tags": ["JVM", "底层"] },
+      { "title": "CodeTop企业题库", "url": "https://codetop.cc/home", "desc": "汇总各大互联网公司高频面试算法题，按频率排序", "tags": ["面试", "高频题"] },
+      { "title": "new-grad-positions", "url": "https://upupming.site/new-grad-positions/", "desc": "互联网校招、秋招与应届生岗位信息汇总", "tags": ["秋招", "校招"] },
+      { "title": "doocs/leetcode", "url": "https://github.com/doocs/leetcode", "desc": "多种编程语言实现 LeetCode、剑指Offer等经典题解", "tags": ["题解", "开源"] },
+      { "title": "深入浅出Java多线程", "url": "https://redspider.gitbook.io/concurrent/", "desc": "全面解析 Java 并发编程与多线程底层原理", "tags": ["并发", "多线程"] },
+      { "title": "Leetcode Rating Predictor", "url": "https://lcpredictor.herokuapp.com/", "desc": "精准预测 LeetCode 周赛/双周赛 Rating 变化", "tags": ["竞赛", "工具"] },
+      { "title": "lets-blade/blade", "url": "https://github.com/lets-blade/blade/", "desc": "轻量级、高性能且优雅的 Java8 MVC 框架", "tags": ["Java", "框架"] }
+    ]
+  },
+  {
+    "category": "CS 基础与系统架构",
+    "icon": "🏛️",
+    "color": "#6366F1",
+    "items": [
+      { "title": "DDIA 逐章精读", "url": "https://github.com/DistSysCorp/ddia", "desc": "《数据密集型应用系统设计》神书的精读笔记", "tags": ["架构", "DDIA"] },
+      { "title": "system-design", "url": "https://github.com/karanpratapsingh/system-design", "desc": "学习如何设计大规模系统及准备系统设计面试", "tags": ["系统设计", "面试"] },
+      { "title": "kubernetes-handbook", "url": "https://github.com/rootsongjc/kubernetes-handbook", "desc": "Kubernetes 中文指南与云原生应用架构实战手册", "tags": ["K8s", "云原生"] },
+      { "title": "ossu/computer-science", "url": "https://github.com/ossu/computer-science", "desc": "全球最火的免费开源计算机科学自学完整路径", "tags": ["CS", "自学"] },
+      { "title": "cs-video-courses", "url": "https://github.com/Developer-Y/cs-video-courses", "desc": "带有视频讲座的顶级计算机科学课程列表", "tags": ["课程", "视频"] },
+      { "title": "Stanford CS Curriculum", "url": "https://docs.google.com/spreadsheets/d/1zfw8nPvJeewxcFUBpKUKmAVE8PjnJI7H0CKimdQXxr0/htmlview", "desc": "斯坦福 CS 本科课程大纲与官方链接", "tags": ["斯坦福", "大纲"] },
+      { "title": "influential-cs-books", "url": "https://github.com/cs-books/influential-cs-books", "desc": "最具影响力的计算机科学/编程经典书籍合集", "tags": ["书籍", "经典"] },
+      { "title": "GoDS (Go Data Structures)", "url": "https://github.com/emirpasic/gods", "desc": "Go 语言标准数据结构库 (Sets, Lists, Maps 等)", "tags": ["Go", "数据结构"] },
+      { "title": "TheAlgorithms/Rust", "url": "https://github.com/TheAlgorithms/Rust", "desc": "使用 Rust 语言实现的各种经典算法集合", "tags": ["Rust", "算法"] },
+      { "title": "rust-based-os-comp2022", "url": "https://learningos.github.io/rust-based-os-comp2022/index.html", "desc": "基于 Rust 的操作系统实战训练营", "tags": ["Rust", "OS"] },
+      { "title": "Cpp-0-1-Resource", "url": "https://github.com/AnkerLeng/Cpp-0-1-Resource", "desc": "C++ 匠心之作 从0到1入门核心资料", "tags": ["C++", "入门"] },
+      { "title": "EffectiveModernCppChinese", "url": "https://cntransgroup.github.io/EffectiveModernCppChinese", "desc": "《Effective Modern C++》高质量中文翻译", "tags": ["C++", "进阶"] },
+      { "title": "C++ HotExamples", "url": "https://cpp.hotexamples.com/", "desc": "搜索真实开源项目中的 C++ 代码示例片段", "tags": ["C++", "代码片段"] },
+      { "title": "TLCL", "url": "https://billie66.github.io/TLCL/book/", "desc": "《快乐的 Linux 命令行》中文版，Linux 必读", "tags": ["Linux", "命令行"] },
+      { "title": "Advanced Bash-Scripting Guide", "url": "https://tldp.org/LDP/abs/html/", "desc": "高级 Bash 脚本编程权威指南", "tags": ["Bash", "脚本"] },
+      { "title": "Use the Index, Luke!", "url": "https://www.kawabangga.com/posts/3893", "desc": "数据库 SQL 索引与性能优化深度笔记", "tags": ["数据库", "SQL"] },
+      { "title": "布隆过滤器算法", "url": "https://developer.aliyun.com/article/919418", "desc": "深入理解布隆过滤器的底层实现原理", "tags": ["算法", "数据结构"] }
+    ]
+  },
+  {
+    "category": "AI 科研与计算机视觉",
+    "icon": "🔬",
+    "color": "#8B5CF6",
+    "items": [
+      { "title": "paperlib", "url": "https://github.com/GeoffreyChen777/paperlib", "desc": "专为 CS 方向打造的开源极简学术论文管理工具", "tags": ["科研", "论文管理"] },
+      { "title": "researchseminars.org", "url": "https://researchseminars.org/talks", "desc": "浏览全球最新的数学与 CS 学术研讨会直播", "tags": ["研讨会", "学术"] },
+      { "title": "computervision-recipes", "url": "https://github.com/microsoft/computervision-recipes", "desc": "微软出品的计算机视觉最佳实践与代码示例", "tags": ["CV", "微软"] },
+      { "title": "Awesome-Computer-Vision", "url": "https://github.com/haofanwang/Awesome-Computer-Vision", "desc": "高级计算机视觉主题的 Awesome 资源列表", "tags": ["CV", "Awesome"] },
+      { "title": "Kosta Derpanis", "url": "https://csprofkgd.github.io/", "desc": "约克大学 CV 教授的主页与顶级课程资料", "tags": ["CV", "课程"] },
+      { "title": "Transformers in CV", "url": "https://theaisummer.com/transformers-computer-vision/", "desc": "ViT 架构及视觉 Transformer 改进技巧深度解析", "tags": ["Transformer", "ViT"] },
+      { "title": "torchkit", "url": "https://github.com/kevinzakka/torchkit", "desc": "PyTorch 研究项目代码模板与标准脚手架", "tags": ["PyTorch", "模板"] },
+      { "title": "tensorflow-handbook", "url": "https://github.com/snowkylin/tensorflow-handbook", "desc": "简单粗暴 TensorFlow 2 简明入门指导教程", "tags": ["TF2", "入门"] },
+      { "title": "wandb_tutorial", "url": "https://github.com/huangshiyu13/wandb_tutorial", "desc": "如何使用 Weights & Biases 进行 AI 实验追踪", "tags": ["MLOps", "Wandb"] },
+      { "title": "codebook", "url": "https://github.com/patrickmineault/codebook", "desc": "《The Good Research Code Handbook》科研代码规范", "tags": ["科研", "代码规范"] },
+      { "title": "mlcompendium", "url": "https://github.com/orico/www.mlcompendium.com/", "desc": "机器学习与深度学习权威参考手册", "tags": ["ML", "DL"] }
+    ]
+  },
+  {
+    "category": "开发工具与速查手册",
+    "icon": "🛠️",
+    "color": "#10B981",
+    "items": [
+      { "title": "Python Tutor", "url": "https://pythontutor.com/", "desc": "可视化执行 Python/C/C++/Java 代码，理解内存运行过程", "tags": ["可视化", "教学"] },
+      { "title": "QuickRef.ME", "url": "https://quickref.me/", "desc": "开发者必备的各种语言与工具快速参考 Cheat Sheet", "tags": ["速查", "CheatSheet"] },
+      { "title": "Cheatography", "url": "https://cheatography.com/", "desc": "下载或创建海量编程语言与软件的速查表", "tags": ["速查", "文档"] },
+      { "title": "OverAPI", "url": "https://overapi.com/", "desc": "一站式收集所有编程语言的 API 与速查表", "tags": ["API", "速查"] },
+      { "title": "W3Cschool词典库", "url": "https://www.w3cschool.cn/dict/", "desc": "编程专业术语与基础概念在线词典", "tags": ["词典", "基础"] },
+      { "title": "CodeGen在线工具箱", "url": "https://cloud.codegen.cc/app/v1.5.1/#/board/dashboard/home", "desc": "开发者日常使用的在线代码生成、格式化与转换工具箱", "tags": ["在线工具", "格式化"] },
+      { "title": "Browserku", "url": "https://browserku.com/", "desc": "网页抓取、自动化截图与图表生成工具", "tags": ["爬虫", "截图"] },
+      { "title": "DataV.GeoAtlas", "url": "https://datav.aliyun.com/portal/school/atlas/area_selector", "desc": "阿里云 DataV 地理坐标与地图 GeoJSON 提取神器", "tags": ["地图", "GeoJSON"] },
+      { "title": "Keyviz", "url": "https://mularahul.github.io/keyviz/", "desc": "在屏幕上实时可视化显示键盘按键操作，录课必备", "tags": ["演示", "效率"] },
+      { "title": "Joyful Pandas", "url": "http://joyfulpandas.datawhale.club/Content/index.html", "desc": "Datawhale 出品的 Pandas 数据处理权威教程", "tags": ["Python", "数据分析"] }
+    ]
+  },
+  {
+    "category": "资源搜索与数字阅读",
+    "icon": "📚",
+    "color": "#EC4899",
+    "items": [
+      { "title": "数字图书馆 (Z-Library)", "url": "https://zh.b-ok.cc/", "desc": "全球最大的数字图书馆，免费下载海量电子书", "tags": ["电子书", "下载"] },
+      { "title": "technical_books", "url": "https://github.com/TIM168/technical_books", "desc": "收集全网最热门技术书籍 (Go/Java/AI/大数据等)", "tags": ["技术书", "开源"] },
+      { "title": "盘友社区", "url": "https://www.panyoubbs.com/", "desc": "高质量的云盘网盘资源共享与资源搜索引擎", "tags": ["网盘", "资源"] },
+      { "title": "千帆搜索", "url": "https://tg.qianfan.app/", "desc": "资源超丰富的 Telegram (TG) 中文搜索引擎", "tags": ["TG", "搜索"] },
+      { "title": "阅读交流论坛", "url": "https://www.5yd.cc/", "desc": "读书爱好者的阅读交流与绝版书籍分享社区", "tags": ["读书", "社区"] },
+      { "title": "资源站", "url": "https://apps.weixinqqq.com/", "desc": "各类实用小工具、API 与资源导航首页", "tags": ["导航", "工具"] }
+    ]
+  },
+  {
+    "category": "效率、设计与生活",
+    "icon": "☕",
+    "color": "#06B6D4",
+    "items": [
+      { "title": "Road 2 Coding", "url": "https://r2coding.com/#/", "desc": "程序员编程之路与全栈学习路线导航", "tags": ["学习路线", "导航"] },
+      { "title": "字母图标生成器", "url": "https://www.logosc.cn/logo/monogram", "desc": "汉字/字母徽章图标与 Logo 一键生成工具", "tags": ["图标", "设计"] },
+      { "title": "DaFont", "url": "https://www.dafont.com/", "desc": "全球知名的免费/商用英文字体下载网站", "tags": ["字体", "设计"] },
+      { "title": "DrakeTyporaTheme", "url": "https://github.com/liangjingkanji/DrakeTyporaTheme", "desc": "现代且优雅的 Typora 主题集合 (Vue/Juejin等)", "tags": ["Typora", "主题"] },
+      { "title": "WLOP wallpapers", "url": "https://www.cgwallpapers.com/wallpapers.php?id=843", "desc": "著名画师 WLOP 的高清绝美插画与壁纸", "tags": ["壁纸", "插画"] },
+      { "title": "Equinox", "url": "https://equinoxmac.com/", "desc": "免费为 macOS 创建与转换动态壁纸的工具", "tags": ["macOS", "动态壁纸"] },
+      { "title": "ToolB", "url": "https://toolb.cn/textspeech", "desc": "文本转 AI 真人语音，免费微软 AI 语音合成", "tags": ["TTS", "语音合成"] },
+      { "title": "APKCombo", "url": "https://apkcombo.com/zh/", "desc": "安全下载 Android APK 安装包与历史版本", "tags": ["Android", "APK"] },
+      { "title": "Dynalist", "url": "https://dynalist.io/login", "desc": "强大的无限层级大纲笔记与逻辑梳理工具", "tags": ["笔记", "大纲"] },
+      { "title": "实力至上主义的教室", "url": "https://www.maofly.com/manga/13380/163128.html", "desc": "漫画猫 - 欢迎来到实力至上主义的教室在线阅读", "tags": ["漫画", "阅读"] },
+      { "title": "全球诡异时代", "url": "https://cn.baozimh.com/comic/quanqiuguiyishidai-heibaichayuanzhuqixiaoguai_d", "desc": "包子漫画 - 全球诡异时代高清在线阅读", "tags": ["漫画", "阅读"] },
+      { "title": "khroma", "url": "https://github.com/tesselle/khroma", "desc": "用于科学数据可视化的专业配色方案 R 包", "tags": ["配色", "可视化"] },
+      { "title": "backtraxe.github.io", "url": "https://backtraxe.github.io/", "desc": "优秀的个人技术博客与主页", "tags": ["博客", "个人"] }
+    ]
   }
 ]
