@@ -1,20 +1,260 @@
 [
-  {
-    "category": "开发工具",
-    "icon": "💻",
-    "color": "#6366F1",
-    "items": [
-      { "title": "GitHub", "url": "https://github.com", "desc": "全球最大代码托管平台", "tags": ["开源", "代码"] },
-      { "title": "MDN", "url": "https://developer.mozilla.org", "desc": "Web 技术权威文档", "tags": ["文档"] }
-    ]
-  },
-  {
-    "category": "设计灵感",
-    "icon": "🎨",
-    "color": "#F43F5E",
-    "items": [
-      { "title": "Dribbble", "url": "https://dribbble.com", "desc": "设计师作品社区", "tags": ["UI", "设计"] },
-      { "title": "Behance", "url": "https://www.behance.net", "desc": "Adobe 创意展示平台", "tags": ["作品集"] }
-    ]
-  }
+    {
+        "category": "开发工具",
+        "icon": "💻",
+        "color": "#6366F1",
+        "items": [
+            {
+                "title": "GitHub",
+                "url": "https://github.com",
+                "desc": "全球最大的代码托管平台，开源项目的聚集地",
+                "tags": [
+                    "开源",
+                    "代码"
+                ]
+            },
+            {
+                "title": "Stack Overflow",
+                "url": "https://stackoverflow.com",
+                "desc": "开发者问答社区，解决编程问题的宝库",
+                "tags": [
+                    "问答",
+                    "社区"
+                ]
+            },
+            {
+                "title": "VS Code",
+                "url": "https://code.visualstudio.com",
+                "desc": "微软出品的免费开源代码编辑器",
+                "tags": [
+                    "编辑器",
+                    "IDE"
+                ]
+            },
+            {
+                "title": "npm",
+                "url": "https://www.npmjs.com",
+                "desc": "Node.js 的包管理工具，JavaScript 生态核心",
+                "tags": [
+                    "包管理",
+                    "JS"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "学习资源",
+        "icon": "📚",
+        "color": "#10B981",
+        "items": [
+            {
+                "title": "MDN Web Docs",
+                "url": "https://developer.mozilla.org",
+                "desc": "Mozilla 维护的 Web 技术文档，最权威的参考",
+                "tags": [
+                    "文档",
+                    "Web"
+                ]
+            },
+            {
+                "title": "FreeCodeCamp",
+                "url": "https://www.freecodecamp.org",
+                "desc": "免费的编程学习平台，通过项目实践学习",
+                "tags": [
+                    "免费",
+                    "教程"
+                ]
+            },
+            {
+                "title": "Coursera",
+                "url": "https://www.coursera.org",
+                "desc": "全球顶级在线教育平台，名校课程免费学",
+                "tags": [
+                    "教育",
+                    "课程"
+                ]
+            },
+            {
+                "title": "LeetCode",
+                "url": "https://leetcode.com",
+                "desc": "算法练习平台，程序员面试必备",
+                "tags": [
+                    "算法",
+                    "面试"
+                ]
+            },
+            {
+                "title": "掘金",
+                "url": "https://juejin.cn",
+                "desc": "高质量的中文技术社区",
+                "tags": [
+                    "社区",
+                    "中文"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "设计灵感",
+        "icon": "🎨",
+        "color": "#F43F5E",
+        "items": [
+            {
+                "title": "Dribbble",
+                "url": "https://dribbble.com",
+                "desc": "设计师作品分享平台，寻找灵感的最佳去处",
+                "tags": [
+                    "设计",
+                    "UI"
+                ]
+            },
+            {
+                "title": "Behance",
+                "url": "https://www.behance.net",
+                "desc": "Adobe 旗下的创意作品展示平台",
+                "tags": [
+                    "创意",
+                    "作品集"
+                ]
+            },
+            {
+                "title": "Awwwards",
+                "url": "https://www.awwwards.com",
+                "desc": "全球优秀网站设计评选，Web 设计风向标",
+                "tags": [
+                    "网页",
+                    "评选"
+                ]
+            },
+            {
+                "title": "Figma",
+                "url": "https://www.figma.com",
+                "desc": "基于浏览器的协作设计工具",
+                "tags": [
+                    "工具",
+                    "协作"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "新闻资讯",
+        "icon": "📰",
+        "color": "#F59E0B",
+        "items": [
+            {
+                "title": "Hacker News",
+                "url": "https://news.ycombinator.com",
+                "desc": "Y Combinator 旗下的科技新闻社区",
+                "tags": [
+                    "科技",
+                    "新闻"
+                ]
+            },
+            {
+                "title": "TechCrunch",
+                "url": "https://techcrunch.com",
+                "desc": "全球知名科技媒体，报道创业和互联网动态",
+                "tags": [
+                    "科技",
+                    "创业"
+                ]
+            },
+            {
+                "title": "InfoQ",
+                "url": "https://www.infoq.cn",
+                "desc": "面向企业软件开发者的技术资讯平台",
+                "tags": [
+                    "企业级",
+                    "技术"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "效率工具",
+        "icon": "⚡",
+        "color": "#06B6D4",
+        "items": [
+            {
+                "title": "Notion",
+                "url": "https://www.notion.so",
+                "desc": "All-in-One 工作空间，笔记+数据库+项目管理",
+                "tags": [
+                    "笔记",
+                    "管理"
+                ]
+            },
+            {
+                "title": "Vercel",
+                "url": "https://vercel.com",
+                "desc": "前端部署平台，极速部署你的 Web 应用",
+                "tags": [
+                    "部署",
+                    "前端"
+                ]
+            },
+            {
+                "title": "Cloudflare",
+                "url": "https://www.cloudflare.com",
+                "desc": "全球 CDN 和网络安全服务提供商",
+                "tags": [
+                    "CDN",
+                    "安全"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "AI 工具",
+        "icon": "🤖",
+        "color": "#8B5CF6",
+        "items": [
+            {
+                "title": "ChatGPT",
+                "url": "https://chat.openai.com",
+                "desc": "OpenAI 开发的 AI 对话助手",
+                "tags": [
+                    "AI",
+                    "对话"
+                ]
+            },
+            {
+                "title": "Claude",
+                "url": "https://claude.ai",
+                "desc": "Anthropic 开发的 AI 助手，擅长长文本处理",
+                "tags": [
+                    "AI",
+                    "助手"
+                ]
+            },
+            {
+                "title": "Midjourney",
+                "url": "https://www.midjourney.com",
+                "desc": "AI 图像生成工具，输入文字即可创作艺术",
+                "tags": [
+                    "AI",
+                    "图像"
+                ]
+            },
+            {
+                "title": "Hugging Face",
+                "url": "https://huggingface.co",
+                "desc": "开源 AI 模型社区，机器学习模型仓库",
+                "tags": [
+                    "开源",
+                    "模型"
+                ]
+            },
+            {
+                "title": "Qwen Studio",
+                "url": "https://chat.qwen.ai",
+                "desc": "通义千问大模型",
+                "tags": [
+                    "AI",
+                    "对话"
+                ]
+            }
+        ]
+    }
 ]
