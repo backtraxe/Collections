@@ -1,0 +1,20 @@
+[
+  {
+    "category": "开发工具",
+    "icon": "💻",
+    "color": "#6366F1",
+    "items": [
+      { "title": "GitHub", "url": "https://github.com", "desc": "全球最大代码托管平台", "tags": ["开源", "代码"] },
+      { "title": "MDN", "url": "https://developer.mozilla.org", "desc": "Web 技术权威文档", "tags": ["文档"] }
+    ]
+  },
+  {
+    "category": "设计灵感",
+    "icon": "🎨",
+    "color": "#F43F5E",
+    "items": [
+      { "title": "Dribbble", "url": "https://dribbble.com", "desc": "设计师作品社区", "tags": ["UI", "设计"] },
+      { "title": "Behance", "url": "https://www.behance.net", "desc": "Adobe 创意展示平台", "tags": ["作品集"] }
+    ]
+  }
+]
