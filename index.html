@@ -565,13 +565,28 @@
             }
 
             .category-nav-inner {
-                gap: 6px;
-                padding: 8px 0 12px;
+                gap: 8px;
+                padding: 8px 16px 12px; /* 增加左右内边距，滑动时不贴边 */
+                
+                /* 核心修改：改为单行横向滑动 */
+                flex-wrap: nowrap; 
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; /* 开启 iOS 惯性滑动，手感更顺滑 */
+                
+                /* 隐藏原生的丑陋滚动条 (Firefox) */
+                scrollbar-width: none; 
             }
 
+            /* 隐藏 Webkit (Chrome/Safari/微信内置浏览器等) 的滚动条 */
+            .category-nav-inner::-webkit-scrollbar {
+                display: none; 
+            }
+
+            /* 防止按钮在横向排列时被挤压变形 */
             .nav-btn {
-                padding: 5px 12px;
-                font-size: 12px;
+                flex-shrink: 0; 
+                padding: 6px 14px;
+                font-size: 13px;
             }
 
             main {
