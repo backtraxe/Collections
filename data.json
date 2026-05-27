@@ -4,6 +4,9 @@
     "icon": "💬",
     "color": "#10B981",
     "items": [
+      { "title": "Happy-LLM", "url": "https://datawhalechina.github.io/happy-llm/", "desc": "", "tags": ["AI"] },
+      { "title": "Hello-Agents", "url": "https://hello-agents.datawhale.cc/", "desc": "", "tags": ["AI"] },
+      { "title": "AI Infra Guide", "url": "https://caomaolufei.github.io/AIInfraGuide/", "desc": "", "tags": ["AI"] },
       { "title": "ChatGPT", "url": "https://chat.openai.com", "desc": "OpenAI 开发的旗舰大语言模型，支持文本、视觉、代码与联网", "tags": ["GPT-4o", "多模态"] },
       { "title": "Claude", "url": "https://claude.ai", "desc": "Anthropic 出品，以超长上下文窗口、深度逻辑推理和代码能力见长", "tags": ["长文本", "推理"] },
       { "title": "Gemini", "url": "https://gemini.google.com", "desc": "Google 推出的原生多模态 AI，与 Google 生态深度整合", "tags": ["Google", "多模态"] },
